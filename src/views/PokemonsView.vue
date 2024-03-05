@@ -16,7 +16,7 @@ const { data, getData, loading } = useGetData();
         
     };
 } */
-console.log(data)
+
 getData('https://pokeapi.co/api/v2/pokemon')
 </script>
 
