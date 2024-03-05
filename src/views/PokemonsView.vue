@@ -24,24 +24,27 @@ getData('https://pokeapi.co/api/v2/pokemon')
     <h1>Pokemons</h1>
     <p v-if="loading">Cargando...</p>
     <div v-if="data">
-        <ul>
+        <ul class="list-group">
             <li 
                 v-for="poke in data.results"
                 :key="poke.id"
+                class="list-group-item"
             >
                 <router-link :to="`/pokemon/${poke.name}`">{{ poke.name }}</router-link>
                 
             </li>
-        </ul>  
-        <button 
-            class="btn btn-success me-2"  
-            @click="getData(data.previous)"
-            :disabled="!data.previous"
-        >Previous</button>   
-        <button 
-            class="btn btn-primary" 
-            @click="getData(data.next)"
-            :disabled="!data.next"
-        >Next</button>   
+        </ul>
+        <div class="mt-2">
+            <button 
+                class="btn btn-success me-2"  
+                @click="getData(data.previous)"
+                :disabled="!data.previous"
+            >Previous</button>   
+            <button 
+                class="btn btn-primary" 
+                @click="getData(data.next)"
+                :disabled="!data.next"
+            >Next</button>   
+        </div>
     </div>
 </template>

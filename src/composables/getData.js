@@ -10,7 +10,6 @@ export const useGetData = () => {
     const getData = async (url) => {
         try {
             const resp = await axios.get(url)
-            console.log(resp.data);
             data.value = resp.data;
         } catch (e) {
             //console.log(error);
