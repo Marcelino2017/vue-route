@@ -1,9 +1,10 @@
 <script setup>
 import { useFavoritosStore } from "@/store/favoritos";
 import { storeToRefs } from "pinia";
+import { RouterLink } from "vue-router";
 
 const userFavoritos = useFavoritosStore();
-const { favoritos,  } = storeToRefs(userFavoritos);
+const { favoritos } = storeToRefs(userFavoritos);
 const { eliminarFavorito } = userFavoritos;
 
 console.log(favoritos.value);
@@ -17,10 +18,32 @@ console.log(favoritos.value);
       <div class="d-flex flex-row justify-content-center align-items-center">
         {{ poke.name }}
         <img :src="poke.sprites?.front_default" alt="" />
-        <button 
-            type="button" 
-            class="btn btn-danger"
-            @click="eliminarFavorito(poke.id)"
+        <router-link
+          type="button"
+          class="btn btn-success me-2"
+          :to="`/pokemon/${poke.name}`"
+          title="Ver Detalles"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-info"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line></svg
+        ></router-link>
+        <button
+          type="button"
+          class="btn btn-danger"
+          @click="eliminarFavorito(poke.id)"
+          title="Eliminar de Favorito"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
