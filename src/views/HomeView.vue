@@ -7,10 +7,10 @@ const useCounter = useCounterStore()
 <template>
   <main>
     <h1>Home Counter: {{ useCounter.count }}</h1>
-    <h2>Double: {{ userCounter.double }}</h2>
+    <h2>Double: {{ useCounter.double }}</h2>
     <button 
       class="btn btn-outline-primary"
-      @click="useCounter.incremen"
+      @click="useCounter.increment"
     >Increments</button>
   </main>
 </template>
