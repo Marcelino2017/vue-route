@@ -1,6 +1,23 @@
 import { defineStore } from "pinia";
+import { computed, ref } from "vue";
 
-export const useCounterStore = defineStore('counter', {
+//api de composition lo nuevo vue 3
+export const useCounterStore = defineStore('counter', () => {
+    const count = ref(0);
+
+    const increment = () => count.value++;
+    const double = computed(() => count.value * 2);
+
+    return {
+        count,
+        increment,
+        double,
+    }   
+
+});
+
+//options api
+/* export const useCounterStore = defineStore('counter', {
     state: () => ({
         count: 0
     }),
@@ -12,4 +29,4 @@ export const useCounterStore = defineStore('counter', {
     getters: {
         double: (state) => state.count * 2
     }
-})
+}) */
