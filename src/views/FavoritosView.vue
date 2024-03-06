@@ -3,8 +3,8 @@ import { useFavoritosStore } from "@/store/favoritos";
 import { storeToRefs } from "pinia";
 
 const userFavoritos = useFavoritosStore();
-const { eliminarFavorito } = userFavoritos;
 const { favoritos,  } = storeToRefs(userFavoritos);
+const { eliminarFavorito } = userFavoritos;
 
 console.log(favoritos.value);
 </script>

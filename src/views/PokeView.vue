@@ -8,7 +8,7 @@ const route = useRoute()
 const router = useRouter()
 
 const userFavoritos = useFavoritosStore();
-const { agregarFavorito } = userFavoritos
+const { agregarFavorito, findPoke } = userFavoritos
 const { favoritos } = storeToRefs(userFavoritos)
 
 //const poke = ref({})
@@ -34,7 +34,7 @@ getData(`https://pokeapi.co/api/v2/pokemon/${route.params.name}`)
         <button 
             class="btn btn-primary mb-2" 
             @click="agregarFavorito(data)"
-            :disabled="favoritos.includes(data)"
+            :disabled="findPoke(data.name)"
         >Agregar a Favoritos</button>
     </div>
     <button class="btn btn-outline-primary"  @click="back">Volver</button>
